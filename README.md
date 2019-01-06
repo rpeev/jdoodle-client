@@ -40,7 +40,7 @@ All distribution files are in `node_modules/jdoodle-client/dist/`
 // Load JDOODLE_XXX process.env values for configuring endpoints and
 // credentials from .env file. This prevents putting personal key info
 // into version control. Example template.env is available in the dist folder
-require('dotenv').load().parsed;
+require('dotenv').load();
 
 const jdoodle = require('jdoodle-client');
 
