@@ -30,7 +30,7 @@ const config = [{
   output: {
     format: 'umd',
     file: pkg.browser,
-    name: pkg.name,
+    name: pkg.browserGlobal,
     sourcemap: true
   },
   plugins: [

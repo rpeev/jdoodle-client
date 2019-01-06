@@ -1,5 +1,6 @@
 {
   "name": "jdoodle-client",
+  "browserGlobal": "jdoodle",
   "version": "1.0.0",
   "description": "JDoodle API client",
   "keywords": [
