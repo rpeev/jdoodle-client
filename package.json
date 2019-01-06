@@ -1,0 +1,36 @@
+{
+  "name": "jdoodle-client",
+  "version": "1.0.0",
+  "description": "JDoodle API client",
+  "keywords": [
+    "JDoodle",
+    "API",
+    "client"
+  ],
+  "author": "Radoslav Peev <rpeev@ymail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/rpeev/jdoodle-client#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpeev/jdoodle-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rpeev/jdoodle-client/issues"
+  },
+  "main": "./dist/jdoodle-client.node.js",
+  "browser": "./dist/jdoodle-client.browser.js",
+  "main_module": "./dist/jdoodle-client.node.mjs",
+  "module": "./dist/jdoodle-client.browser.mjs",
+  "scripts": {
+    "build": "rollup -c",
+    "gmod:link": "npm link jdoodle-client",
+    "pm:stop": "sudo pm2 stop ./pm2.process.json",
+    "pm:start": "sudo pm2 start ./pm2.process.json",
+    "pm:restart": "sudo pm2 restart ./pm2.process.json --update-env"
+  },
+  "devDependencies": {
+    "rollup": "^1.0.0",
+    "rollup-plugin-copy": "^0.2.3",
+    "rollup-plugin-json": "^3.1.0"
+  }
+}
