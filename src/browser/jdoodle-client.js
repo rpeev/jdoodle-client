@@ -29,7 +29,7 @@ function _callAPI(url, opts = {}) {
 }
 
 function callExecuteAPI({
-  endpoint = `${location.origin}/${jdoodle.defaultExecutePath}`,
+  endpoint = `${location.origin}${jdoodle.defaultExecutePath}`,
   language,
   versionIndex,
   stdin,
@@ -44,7 +44,7 @@ function callExecuteAPI({
 }
 
 function callCreditSpentAPI({
-  endpoint = `${location.origin}/${jdoodle.defaultCreditSpentPath}`
+  endpoint = `${location.origin}${jdoodle.defaultCreditSpentPath}`
 } = {}) {
   return _callAPI(endpoint);
 }
