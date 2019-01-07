@@ -83,4 +83,4 @@ The following properties/functions are available through the **jdoodle** namespa
 
     All opts have defaults so just calling the functions is a quick test if things are properly set up, the return value is a promise resolving to JSON even in the presence of errors (containing limited information about the error), for more control use the `callExecuteAPI` and `callCreditSpentAPI` variants with appropriate error handling either via promise then-catch chain or try-catch block with async/await
 
-See the **example** folder for node and browser examples respectively
+See [the example repo](https://github.com/rpeev/jdoodle-client-example) for complete code example
