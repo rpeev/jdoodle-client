@@ -4,8 +4,6 @@ JavaScript [JDoodle API](https://www.jdoodle.com/compiler-api/docs) client
 
 ![Screenshot](./screenshot.png)
 
-[comment]: # (## [Demo](https://rpeev.github.io/jdoodle-client/))
-
 ## Distribution
 
 ### Unpkg - [https://unpkg.com/jdoodle-client@latest/dist/](https://unpkg.com/jdoodle-client@latest/dist/)
@@ -51,7 +49,6 @@ const jdoodle = require('jdoodle-client');
 
 ```javascript
 // Use the jdoodle (window.jdoodle) object
-// TODO: Write wrappers around the fetch API
 ```
 
 ### ES module
@@ -71,6 +68,19 @@ import jdoodle from 'jdoodle-client';
 The following properties/functions are available through the **jdoodle** namespace object returned from `require('jdoodle-client')` on node or available as `window.jdoodle` in the browser (the ES module has the namespace object as default export):
 
 - `version` - library version
-- TODO: Add documentation
+- `execute([opts])` - execute code, the opts are:
+    - `endpoint` - node: JDoodle API endpoint, browser: your server endpoint
+    - `clientId` - (node only) JDoodle clientId, set via .env
+    - `clientSecret` - (node only) JDoodle clientSecret, set via .env
+    - `language` - language code
+    - `versionIndex` - language version code ([details about language and versionIndex codes](https://www.jdoodle.com/compiler-api/docs))
+    - `stdin` - standard input
+    - `script` - program source
+- `creditSpent([opts])` - check spent credit, the opts are:
+    - `endpoint` - node: JDoodle API endpoint, browser: your server endpoint
+    - `clientId` - (node only) JDoodle clientId, set via .env
+    - `clientSecret` - (node only) JDoodle clientSecret, set via .env
+
+    All opts have defaults so just calling the functions is a quick test if things are properly set up, the return value is a promise resolving to JSON even in the presence of errors (containing limited information about the error), for more control use the `callExecuteAPI` and `callCreditSpentAPI` variants with appropriate error handling either via promise then-catch chain or try-catch block with async/await
 
 See the **example** folder for node and browser examples respectively
