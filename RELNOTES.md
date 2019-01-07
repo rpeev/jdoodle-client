@@ -1,5 +1,9 @@
 # Release Notes
 
+## 1.0.1
+
+- Fix wrong endpoint default values
+
 ## 1.0.0
 
 - Implement the browser-side code
