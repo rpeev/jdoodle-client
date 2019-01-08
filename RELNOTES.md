@@ -1,5 +1,9 @@
 # Release Notes
 
+## 1.0.2
+
+- README updates
+
 ## 1.0.1
 
 - Fix wrong endpoint default values
