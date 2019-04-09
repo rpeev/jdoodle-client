@@ -38,7 +38,7 @@ const jdoodle = require('jdoodle-client');
 // Load JDOODLE_XXX process.env values for configuring endpoints and
 // credentials from .env file. This prevents putting personal key info
 // into version control. Example template.env is available in the dist folder
-require('dotenv').load();
+require('dotenv').config();
 
 // Use the jdoodle object, example server code (using Koa) might look like that:
 httpRouter.post(jdoodle.defaultExecutePath, async ctx => {
