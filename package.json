@@ -30,7 +30,7 @@
     "pm:restart": "sudo pm2 restart ./pm2.process.json --update-env"
   },
   "devDependencies": {
-    "rollup": "^1.9.3",
+    "rollup": "^1.10.1",
     "rollup-plugin-copy": "^1.1.0",
     "rollup-plugin-json": "^4.0.0"
   }
