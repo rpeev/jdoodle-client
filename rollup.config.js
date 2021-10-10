@@ -1,5 +1,5 @@
 import copy from 'rollup-plugin-copy';
-import json from 'rollup-plugin-json';
+import json from '@rollup/plugin-json';
 
 import pkg from './package.json';
 
@@ -15,6 +15,7 @@ const config = [{
   input: './src/index.node.js',
   output: {
     format: 'cjs',
+    exports: 'auto',
     file: pkg.main,
     sourcemap: true
   },
