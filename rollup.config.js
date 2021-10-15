@@ -7,7 +7,10 @@ const pluginJson = json({
   preferConst: true
 });
 const pluginCopy = copy({
-  'src/node/template.env': 'dist/template.env'
+  targets: [{
+    src: 'src/node/template.env',
+    dest: 'dist/'
+  }]
 });
 
 const config = [{
