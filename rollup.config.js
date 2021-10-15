@@ -14,12 +14,12 @@ const pluginCopy = copy({
 });
 
 const config = [{
-  external: ['https'],
   input: './src/index.node.js',
+  external: ['https'],
   output: {
+    file: pkg.main,
     exports: 'auto',
     format: 'cjs',
-    file: pkg.main,
     sourcemap: true
   },
   plugins: [
@@ -30,11 +30,11 @@ const config = [{
     include: 'src/**'
   }
 }, {
-  external: ['https'],
   input: './src/index.node.mjs',
+  external: ['https'],
   output: {
-    format: 'es',
     file: pkg.module,
+    format: 'es',
     sourcemap: true
   },
   plugins: [
@@ -47,9 +47,9 @@ const config = [{
 }, {
   input: './src/index.browser.js',
   output: {
-    format: 'umd',
     file: pkg.browser,
     name: pkg.browserGlobal,
+    format: 'umd',
     sourcemap: true
   },
   plugins: [
@@ -61,8 +61,8 @@ const config = [{
 }, {
   input: './src/index.browser.mjs',
   output: {
-    format: 'es',
     file: pkg.browserModule,
+    format: 'es',
     sourcemap: true
   },
   plugins: [
