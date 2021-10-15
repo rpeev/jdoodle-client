@@ -1,27 +1,42 @@
-import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
+import copy from 'rollup-plugin-copy';
 
 import pkg from './package.json';
 
-const pluginCopy = copy({
-  'src/node/template.env': 'dist/template.env'
-});
 const pluginJson = json({
   preferConst: true
+});
+const pluginCopy = copy({
+  'src/node/template.env': 'dist/template.env'
 });
 
 const config = [{
   external: ['https'],
   input: './src/index.node.js',
   output: {
-    format: 'cjs',
     exports: 'auto',
+    format: 'cjs',
     file: pkg.main,
     sourcemap: true
   },
   plugins: [
-    pluginCopy,
-    pluginJson
+    pluginJson,
+    pluginCopy
+  ],
+  watch: {
+    include: 'src/**'
+  }
+}, {
+  external: ['https'],
+  input: './src/index.node.mjs',
+  output: {
+    format: 'es',
+    file: pkg.module,
+    sourcemap: true
+  },
+  plugins: [
+    pluginJson,
+    pluginCopy
   ],
   watch: {
     include: 'src/**'
@@ -41,25 +56,10 @@ const config = [{
     include: 'src/**'
   }
 }, {
-  external: ['https'],
-  input: './src/index.node.mjs',
-  output: {
-    format: 'es',
-    file: pkg.main_module,
-    sourcemap: true
-  },
-  plugins: [
-    pluginCopy,
-    pluginJson
-  ],
-  watch: {
-    include: 'src/**'
-  }
-}, {
   input: './src/index.browser.mjs',
   output: {
     format: 'es',
-    file: pkg.module,
+    file: pkg.browserModule,
     sourcemap: true
   },
   plugins: [
