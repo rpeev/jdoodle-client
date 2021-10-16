@@ -1,5 +1,5 @@
 import {request} from 'https';
-import jdoodle from '../universal/base';
+import jdoodle from '../core/base';
 
 const _api = (url, opts) => new Promise((resolve, reject) => {
   const json = JSON.stringify(opts);
