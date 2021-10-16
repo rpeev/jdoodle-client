@@ -1,9 +1,7 @@
 import pkg from '../../package.json';
 
 const jdoodle = {
-  get [Symbol.toStringTag]() {
-    return pkg.browserGlobal;
-  },
+  get [Symbol.toStringTag]() { return pkg.browserGlobal; },
   version: pkg.version,
   opts: {
     executeEndpoint: 'https://api.jdoodle.com/v1/execute',
