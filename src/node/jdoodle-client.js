@@ -1,7 +1,7 @@
 import {request} from 'https';
 import jdoodle from '../universal/base';
 
-function _callAPI(url, opts) {
+const _api = (url, opts) => {
   return new Promise((resolve, reject) => {
     const json = JSON.stringify(opts);
     const req = request(url, {
@@ -25,7 +25,7 @@ function _callAPI(url, opts) {
     req.write(json);
     req.end();
   });
-}
+};
 
 function callExecuteAPI({
   endpoint = process.env.JDOODLE_ENDPOINT_EXECUTE ||
