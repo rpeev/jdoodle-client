@@ -26,14 +26,14 @@ const _api = (url, opts = {}) => new Promise((resolve, reject) => {
 });
 
 const rawExecute = ({
-  endpoint = process.env.JDOODLE_ENDPOINT_EXECUTE || jdoodle.opts.executeEndpoint,
+  url = process.env.JDOODLE_EXECUTE_ENDPOINT || jdoodle.opts.executeEndpoint,
   clientId = process.env.JDOODLE_CLIENT_ID,
   clientSecret = process.env.JDOODLE_CLIENT_SECRET,
   language = jdoodle.opts.language,
   versionIndex = jdoodle.opts.versionIndex,
   stdin = jdoodle.opts.stdin,
   script = jdoodle.opts.script
-} = {}) => _api(endpoint, {
+} = {}) => _api(url, {
   clientId,
   clientSecret,
   language,
@@ -49,10 +49,10 @@ const execute = opts => rawExecute(opts).
   }));
 
 const rawCreditSpent = ({
-  endpoint = process.env.JDOODLE_ENDPOINT_CREDIT_SPENT || jdoodle.opts.creditSpentEndpoint,
+  url = process.env.JDOODLE_CREDIT_SPENT_ENDPOINT || jdoodle.opts.creditSpentEndpoint,
   clientId = process.env.JDOODLE_CLIENT_ID,
   clientSecret = process.env.JDOODLE_CLIENT_SECRET
-} = {}) => _api(endpoint, {
+} = {}) => _api(url, {
   clientId,
   clientSecret
 });

@@ -31,12 +31,12 @@ Object.defineProperty(jdoodle.opts, 'executeURL', {
 });
 
 const rawExecute = ({
-  endpoint = jdoodle.opts.executeURL,
+  url = jdoodle.opts.executeURL,
   language,
   versionIndex,
   stdin,
   script
-} = {}) => _api(endpoint, {
+} = {}) => _api(url, {
   language,
   versionIndex,
   stdin,
@@ -53,8 +53,8 @@ Object.defineProperty(jdoodle.opts, 'creditSpentURL', {
 });
 
 const rawCreditSpent = ({
-  endpoint = jdoodle.opts.creditSpentURL
-} = {}) => _api(endpoint);
+  url = jdoodle.opts.creditSpentURL
+} = {}) => _api(url);
 
 const creditSpent = opts => rawCreditSpent(opts).
   catch(err => ({
