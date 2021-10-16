@@ -3,15 +3,15 @@ import jdoodle from '../universal/base';
 
 function _callAPI(url, opts) {
   return new Promise((resolve, reject) => {
-    let content = JSON.stringify(opts);
-    let req = request(url, {
+    const content = JSON.stringify(opts);
+    const req = request(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Content-Length': content.length
       }
     }, res => {
-      let received = [];
+      const received = [];
       res.
         on('data', data => received.push(String(data))).
         on('end', () => {
