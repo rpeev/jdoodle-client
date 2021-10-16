@@ -3,12 +3,12 @@ import jdoodle from '../universal/base';
 
 function _callAPI(url, opts) {
   return new Promise((resolve, reject) => {
-    const content = JSON.stringify(opts);
+    const json = JSON.stringify(opts);
     const req = request(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Content-Length': content.length
+        'Content-Length': json.length
       }
     }, res => {
       const received = [];
@@ -22,7 +22,7 @@ function _callAPI(url, opts) {
         }).
         on('error', err => reject(err));
     }).on('error', err => reject(err));
-    req.write(content);
+    req.write(json);
     req.end();
   });
 }
