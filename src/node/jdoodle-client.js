@@ -42,6 +42,12 @@ const rawExecute = ({
   script
 });
 
+const execute = opts => rawExecute(opts).
+  catch(err => ({
+    error: `${err}`,
+    statusCode: 500
+  }));
+
 const rawCreditSpent = ({
   endpoint = process.env.JDOODLE_ENDPOINT_CREDIT_SPENT || jdoodle.opts.creditSpentEndpoint,
   clientId = process.env.JDOODLE_CLIENT_ID,
@@ -51,16 +57,16 @@ const rawCreditSpent = ({
   clientSecret
 });
 
-const execute = opts => callExecuteAPI(opts).
-  catch(err => ({error: `${err}`, statusCode: 500}));
-
-const creditSpent = opts => callCreditSpentAPI(opts).
-  catch(err => ({error: `${err}`, statusCode: 500}));
+const creditSpent = opts => rawCreditSpent(opts).
+  catch(err => ({
+    error: `${err}`,
+    statusCode: 500
+  }));
 
 Object.assign(jdoodle, {
-  callExecuteAPI,
-  callCreditSpentAPI,
+  rawExecute,
   execute,
+  rawCreditSpent,
   creditSpent
 });
 
