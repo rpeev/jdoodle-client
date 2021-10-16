@@ -27,17 +27,16 @@ const _api = (url, opts) => {
   });
 };
 
-function callExecuteAPI({
-  endpoint = process.env.JDOODLE_ENDPOINT_EXECUTE ||
-    'https://api.jdoodle.com/v1/execute',
+const rawExecute = ({
+  endpoint = process.env.JDOODLE_ENDPOINT_EXECUTE || jdoodle.opts.executeEndpoint,
   clientId = process.env.JDOODLE_CLIENT_ID,
   clientSecret = process.env.JDOODLE_CLIENT_SECRET,
-  language = 'ruby',
-  versionIndex = 2,
-  stdin = 'Hi',
-  script = 'puts "ruby \#{RUBY_VERSION}: \#{ARGF.read}"'
+  language = jdoodle.opts.language,
+  versionIndex = jdoodle.opts.versionIndex,
+  stdin = jdoodle.opts.stdin,
+  script = jdoodle.opts.script
 } = {}) {
-  return _callAPI(endpoint, {
+  return _api(endpoint, {
     clientId,
     clientSecret,
     language,
@@ -45,7 +44,7 @@ function callExecuteAPI({
     stdin,
     script
   });
-}
+};
 
 function callCreditSpentAPI({
   endpoint = process.env.JDOODLE_ENDPOINT_CREDIT_SPENT ||
