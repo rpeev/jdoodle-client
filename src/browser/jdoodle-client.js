@@ -1,6 +1,6 @@
 import jdoodle from '../core/base';
 
-const _api = (url, opts) => new Promise((resolve, reject) => {
+const _api = (url, opts = {}) => new Promise((resolve, reject) => {
   const json = JSON.stringify(opts);
   fetch(url, {
     method: 'POST',
@@ -26,8 +26,12 @@ const _api = (url, opts) => new Promise((resolve, reject) => {
     )));
 });
 
+Object.defineProperty(jdoodle.opts, 'executeURL', {
+  get () { return `${location.origin}${this.executePath}`; }
+});
+
 const rawExecute = ({
-  endpoint = location.origin + jdoodle.opts.executePath,
+  endpoint = jdoodle.opts.executeURL,
   language,
   versionIndex,
   stdin,
@@ -44,8 +48,12 @@ const execute = opts => rawExecute(opts).
     error: `${err}`
   }));
 
+Object.defineProperty(jdoodle.opts, 'creditSpentURL', {
+  get () { return `${location.origin}${this.creditSpentPath}`; }
+});
+
 const rawCreditSpent = ({
-  endpoint = location.origin + jdoodle.opts.creditSpentPath
+  endpoint = jdoodle.opts.creditSpentURL
 } = {}) => _api(endpoint);
 
 const creditSpent = opts => rawCreditSpent(opts).
