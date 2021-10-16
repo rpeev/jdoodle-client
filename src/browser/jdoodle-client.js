@@ -1,32 +1,30 @@
-import jdoodle from '../universal/base';
+import jdoodle from '../core/base';
 
-function _callAPI(url, opts = {}) {
-  return new Promise((resolve, reject) => {
-    let content = JSON.stringify(opts);
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Content-Length': content.length
-      },
-      body: content
+const _api = (url, opts) => new Promise((resolve, reject) => {
+  const json = JSON.stringify(opts);
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Content-Length': json.length
+    },
+    body: json
+  }).
+    then(res => {
+      if (res.ok) {
+        res.json().
+          then(json => resolve(json)).
+          catch(err => reject(err));
+      } else {
+        reject(new Error(
+          `HTTP Error: ${res.status} (${res.statusText}) ${res.url}`
+        ));
+      }
     }).
-      then(res => {
-        if (res.ok) {
-          res.json().
-            then(json => resolve(json)).
-            catch(err => reject(err));
-        } else {
-          reject(new Error(
-            `HTTP Error: ${res.status} (${res.statusText}) ${res.url}`
-          ));
-        }
-      }).
-      catch(err => reject(new Error(
-        `Network Error (cross-domain request?) ${url}`
-      )));
-  });
-}
+    catch(err => reject(new Error(
+      `Network Error (cross-domain request?) (${err}) ${url}`
+    )));
+});
 
 function callExecuteAPI({
   endpoint = `${location.origin}${jdoodle.defaultExecutePath}`,
