@@ -11,13 +11,13 @@ function _callAPI(url, opts) {
         'Content-Length': json.length
       }
     }, res => {
-      const received = [];
+      const buf = [];
       res.
-        on('data', data => received.push(String(data))).
+        on('data', data => buf.push(String(data))).
         on('end', () => {
           // Wrap in a try-catch because JSON.parse might throw and
           // we're in an unprotected callback after the promise is created
-          try { resolve(JSON.parse(received.join(''))); }
+          try { resolve(JSON.parse(buf.join(''))); }
           catch (err) { reject(err); }
         }).
         on('error', err => reject(err));
