@@ -6,8 +6,14 @@ const jdoodle = {
   },
   version: pkg.version,
   opts: {
+    executeEndpoint: 'https://api.jdoodle.com/v1/execute',
     executePath: '/jdoodleExecute',
-    creditSpentPath: '/jdoodleCreditSpent'
+    creditSpentEndpoint: 'https://api.jdoodle.com/v1/credit-spent',
+    creditSpentPath: '/jdoodleCreditSpent',
+    language: 'ruby',
+    versionIndex: 3,
+    stdin: 'Hi',
+    script: 'puts "ruby #{RUBY_VERSION}: #{ARGF.read}"'
   }
 };
 
