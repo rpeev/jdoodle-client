@@ -27,7 +27,7 @@ const _api = (url, opts = {}) => new Promise((resolve, reject) => {
 });
 
 Object.defineProperty(jdoodle.opts, 'executeURL', {
-  get () { return `${location.origin}${this.executePath}`; }
+  get() { return `${location.origin}${this.executePath}`; }
 });
 
 const rawExecute = ({
@@ -49,7 +49,7 @@ const execute = opts => rawExecute(opts).
   }));
 
 Object.defineProperty(jdoodle.opts, 'creditSpentURL', {
-  get () { return `${location.origin}${this.creditSpentPath}`; }
+  get() { return `${location.origin}${this.creditSpentPath}`; }
 });
 
 const rawCreditSpent = ({
