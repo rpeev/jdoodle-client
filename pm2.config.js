@@ -4,4 +4,4 @@ module.exports = {
     script: 'rollup',
     args: '-c -w'
   }]
-}
+};
