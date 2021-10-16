@@ -26,37 +26,37 @@ const _api = (url, opts) => new Promise((resolve, reject) => {
     )));
 });
 
-function callExecuteAPI({
-  endpoint = `${location.origin}${jdoodle.defaultExecutePath}`,
+const rawExecute = ({
+  endpoint = location.origin + jdoodle.opts.executePath,
   language,
   versionIndex,
   stdin,
   script
-} = {}) {
-  return _callAPI(endpoint, {
-    language,
-    versionIndex,
-    stdin,
-    script
-  });
-}
+} = {}) => _api(endpoint, {
+  language,
+  versionIndex,
+  stdin,
+  script
+});
 
-function callCreditSpentAPI({
-  endpoint = `${location.origin}${jdoodle.defaultCreditSpentPath}`
-} = {}) {
-  return _callAPI(endpoint);
-}
+const execute = opts => rawExecute(opts).
+  catch(err => ({
+    error: `${err}`
+  }));
 
-const execute = opts => callExecuteAPI(opts).
-  catch(err => ({error: `${err}`}));
+const rawCreditSpent = ({
+  endpoint = location.origin + jdoodle.opts.creditSpentPath
+} = {}) => _api(endpoint);
 
-const creditSpent = opts => callCreditSpentAPI(opts).
-  catch(err => ({error: `${err}`}));
+const creditSpent = opts => rawCreditSpent(opts).
+  catch(err => ({
+    error: `${err}`
+  }));
 
 Object.assign(jdoodle, {
-  callExecuteAPI,
-  callCreditSpentAPI,
+  rawExecute,
   execute,
+  rawCreditSpent,
   creditSpent
 });
 
