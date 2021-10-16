@@ -1,6 +1,5 @@
-import jdoodle from '../universal/base';
-
 import https from 'https';
+import jdoodle from '../universal/base';
 
 function _callAPI(url, opts) {
   return new Promise((resolve, reject) => {
