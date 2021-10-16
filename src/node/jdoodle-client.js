@@ -35,7 +35,7 @@ const rawExecute = ({
   versionIndex = jdoodle.opts.versionIndex,
   stdin = jdoodle.opts.stdin,
   script = jdoodle.opts.script
-} = {}) {
+} = {}) => {
   return _api(endpoint, {
     clientId,
     clientSecret,
@@ -46,17 +46,16 @@ const rawExecute = ({
   });
 };
 
-function callCreditSpentAPI({
-  endpoint = process.env.JDOODLE_ENDPOINT_CREDIT_SPENT ||
-    'https://api.jdoodle.com/v1/credit-spent',
+const rawCreditSpent = ({
+  endpoint = process.env.JDOODLE_ENDPOINT_CREDIT_SPENT || jdoodle.opts.creditSpentEndpoint,
   clientId = process.env.JDOODLE_CLIENT_ID,
   clientSecret = process.env.JDOODLE_CLIENT_SECRET
-} = {}) {
-  return _callAPI(endpoint, {
+} = {}) => {
+  return _api(endpoint, {
     clientId,
     clientSecret
   });
-}
+};
 
 const execute = opts => callExecuteAPI(opts).
   catch(err => ({error: `${err}`, statusCode: 500}));
