@@ -1,13 +1,10 @@
-import {
-  name as LIB_NAME,
-  version as LIB_VERSION
-} from '../../package.json';
+import pkg from '../../package.json';
 
 const jdoodle = {
   get [Symbol.toStringTag]() {
-    return LIB_NAME;
+    return pkg.browserGlobal;
   },
-  version: LIB_VERSION,
+  version: pkg.version,
   defaultExecutePath: '/jdoodleExecute',
   defaultCreditSpentPath: '/jdoodleCreditSpent'
 };
