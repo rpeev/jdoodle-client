@@ -5,8 +5,10 @@ const jdoodle = {
     return pkg.browserGlobal;
   },
   version: pkg.version,
-  defaultExecutePath: '/jdoodleExecute',
-  defaultCreditSpentPath: '/jdoodleCreditSpent'
+  opts: {
+    executePath: '/jdoodleExecute',
+    creditSpentPath: '/jdoodleCreditSpent'
+  }
 };
 
 export default jdoodle;
