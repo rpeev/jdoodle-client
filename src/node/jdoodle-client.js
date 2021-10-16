@@ -1,10 +1,10 @@
-import https from 'https';
+import {request} from 'https';
 import jdoodle from '../universal/base';
 
 function _callAPI(url, opts) {
   return new Promise((resolve, reject) => {
     let content = JSON.stringify(opts);
-    let req = https.request(url, {
+    let req = request(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
