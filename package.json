@@ -23,6 +23,7 @@
   "browserGlobal": "jdoodle",
   "browserModule": "./dist/jdoodle-client.browser.mjs",
   "scripts": {
+    "dev.link": "npm link && npm link jdoodle-client",
     "dev.build": "rollup -c",
     "dev.stop": "pm2 stop ./pm2.config.js",
     "dev.start": "pm2 start ./pm2.config.js",
