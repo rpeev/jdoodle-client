@@ -1,6 +1,5 @@
 import json from '@rollup/plugin-json';
 import copy from 'rollup-plugin-copy';
-
 import pkg from './package.json';
 
 const pluginJson = json({
