@@ -24,6 +24,7 @@
   "browserModule": "./dist/jdoodle-client.browser.mjs",
   "scripts": {
     "dev.link": "npm link && npm link jdoodle-client",
+    "dev.unlink": "npm unlink --no-save jdoodle-client && npm unlink -g",
     "dev.build": "rollup -c",
     "dev.start": "pm2 start ./pm2.config.js",
     "dev.stop": "pm2 stop ./pm2.config.js",
