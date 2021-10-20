@@ -1,6 +1,6 @@
 import json from '@rollup/plugin-json';
 import copy from 'rollup-plugin-copy';
-import pkg from './package.json';
+import {main, module, browser, browserGlobal, browserModule} from './package.json';
 
 const pluginJson = json({
   preferConst: true
@@ -16,7 +16,7 @@ const config = [{
   input: './src/index.node.js',
   external: ['https'],
   output: {
-    file: pkg.main,
+    file: main,
     exports: 'auto',
     format: 'cjs',
     sourcemap: true
@@ -32,7 +32,7 @@ const config = [{
   input: './src/index.node.mjs',
   external: ['https'],
   output: {
-    file: pkg.module,
+    file: module,
     format: 'es',
     sourcemap: true
   },
@@ -46,8 +46,8 @@ const config = [{
 }, {
   input: './src/index.browser.js',
   output: {
-    file: pkg.browser,
-    name: pkg.browserGlobal,
+    file: browser,
+    name: browserGlobal,
     format: 'umd',
     sourcemap: true
   },
@@ -60,7 +60,7 @@ const config = [{
 }, {
   input: './src/index.browser.mjs',
   output: {
-    file: pkg.browserModule,
+    file: browserModule,
     format: 'es',
     sourcemap: true
   },
