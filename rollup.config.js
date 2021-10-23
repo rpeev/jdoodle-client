@@ -13,7 +13,7 @@ const pluginCopy = copy({
 });
 
 const config = [{
-  input: './src/index.node.js',
+  input: './src/index.node.cjs.mjs',
   external: ['https'],
   output: {
     file: main,
@@ -44,7 +44,7 @@ const config = [{
     include: 'src/**'
   }
 }, {
-  input: './src/index.browser.js',
+  input: './src/index.browser.umd.mjs',
   output: {
     file: browser,
     name: browserGlobal,
