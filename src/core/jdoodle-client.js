@@ -7,9 +7,9 @@ const jdoodle = {
     executeEndpoint: 'https://api.jdoodle.com/v1/execute',
     executePath: '/jdoodleExecute',
     language: 'ruby',
-    versionIndex: 3,
-    stdin: 'Hi',
-    script: 'puts "ruby #{RUBY_VERSION}: #{ARGF.read}"',
+    versionIndex: 0,
+    stdin: '',
+    script: 'puts "(ruby #{RUBY_VERSION}) Hi"',
     creditSpentEndpoint: 'https://api.jdoodle.com/v1/credit-spent',
     creditSpentPath: '/jdoodleCreditSpent'
   }
