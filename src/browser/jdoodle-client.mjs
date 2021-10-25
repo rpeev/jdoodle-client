@@ -1,4 +1,4 @@
-import jdoodle from '../core/jdoodle-client';
+import lib from '../core/jdoodle-client';
 
 const _api = (url, opts = {}) => new Promise((resolve, reject) => {
   const json = JSON.stringify(opts);
@@ -61,11 +61,11 @@ const creditSpent = opts => rawCreditSpent(opts).
     error: `${err}`
   }));
 
-Object.assign(jdoodle, {
+Object.assign(lib, {
   rawExecute,
   execute,
   rawCreditSpent,
   creditSpent
 });
 
-export default jdoodle;
+export default lib;
