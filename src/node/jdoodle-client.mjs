@@ -1,8 +1,8 @@
 import {request} from 'https';
 import lib from '../core/jdoodle-client';
 
-const _api = (url, opts = {}) => new Promise((resolve, reject) => {
-  const json = JSON.stringify(opts);
+const _api = (url, kwargs = {}) => new Promise((resolve, reject) => {
+  const json = JSON.stringify(kwargs);
   const req = request(url, {
     method: 'POST',
     headers: {
@@ -42,7 +42,7 @@ const rawExecute = ({
   script
 });
 
-const execute = opts => rawExecute(opts).
+const execute = kwargs => rawExecute(kwargs).
   catch(err => ({
     error: `${err}`,
     statusCode: 500
@@ -57,7 +57,7 @@ const rawCreditSpent = ({
   clientSecret
 });
 
-const creditSpent = opts => rawCreditSpent(opts).
+const creditSpent = kwargs => rawCreditSpent(kwargs).
   catch(err => ({
     error: `${err}`,
     statusCode: 500

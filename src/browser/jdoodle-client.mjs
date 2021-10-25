@@ -1,7 +1,7 @@
 import lib from '../core/jdoodle-client';
 
-const _api = (url, opts = {}) => new Promise((resolve, reject) => {
-  const json = JSON.stringify(opts);
+const _api = (url, kwargs = {}) => new Promise((resolve, reject) => {
+  const json = JSON.stringify(kwargs);
   fetch(url, {
     method: 'POST',
     headers: {
@@ -43,7 +43,7 @@ const rawExecute = ({
   script
 });
 
-const execute = opts => rawExecute(opts).
+const execute = kwargs => rawExecute(kwargs).
   catch(err => ({
     error: `${err}`
   }));
@@ -56,7 +56,7 @@ const rawCreditSpent = ({
   url = jdoodle.defaults.creditSpentURL
 } = {}) => _api(url);
 
-const creditSpent = opts => rawCreditSpent(opts).
+const creditSpent = kwargs => rawCreditSpent(kwargs).
   catch(err => ({
     error: `${err}`
   }));
