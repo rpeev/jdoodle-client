@@ -13,6 +13,21 @@ const pluginCopy = copy({
 });
 
 const config = [{
+  input: './src/node/bundle.mjs',
+  external: ['https'],
+  output: {
+    file: module,
+    format: 'es',
+    sourcemap: true
+  },
+  plugins: [
+    pluginJson,
+    pluginCopy
+  ],
+  watch: {
+    include: 'src/**'
+  }
+}, {
   input: './src/node/bundle.cjs.mjs',
   external: ['https'],
   output: {
@@ -29,16 +44,14 @@ const config = [{
     include: 'src/**'
   }
 }, {
-  input: './src/node/bundle.mjs',
-  external: ['https'],
+  input: './src/browser/bundle.mjs',
   output: {
-    file: module,
+    file: browserModule,
     format: 'es',
     sourcemap: true
   },
   plugins: [
-    pluginJson,
-    pluginCopy
+    pluginJson
   ],
   watch: {
     include: 'src/**'
@@ -49,19 +62,6 @@ const config = [{
     file: browser,
     name: browserGlobal,
     format: 'umd',
-    sourcemap: true
-  },
-  plugins: [
-    pluginJson
-  ],
-  watch: {
-    include: 'src/**'
-  }
-}, {
-  input: './src/browser/bundle.mjs',
-  output: {
-    file: browserModule,
-    format: 'es',
     sourcemap: true
   },
   plugins: [
