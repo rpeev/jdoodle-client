@@ -13,7 +13,7 @@ const pluginCopy = copy({
 });
 
 const config = [{
-  input: './src/index.node.cjs.mjs',
+  input: './src/node/bundle.cjs.mjs',
   external: ['https'],
   output: {
     file: main,
@@ -29,7 +29,7 @@ const config = [{
     include: 'src/**'
   }
 }, {
-  input: './src/index.node.mjs',
+  input: './src/node/bundle.mjs',
   external: ['https'],
   output: {
     file: module,
@@ -44,7 +44,7 @@ const config = [{
     include: 'src/**'
   }
 }, {
-  input: './src/index.browser.umd.mjs',
+  input: './src/browser/bundle.umd.mjs',
   output: {
     file: browser,
     name: browserGlobal,
@@ -58,7 +58,7 @@ const config = [{
     include: 'src/**'
   }
 }, {
-  input: './src/index.browser.mjs',
+  input: './src/browser/bundle.mjs',
   output: {
     file: browserModule,
     format: 'es',
