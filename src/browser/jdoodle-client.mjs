@@ -26,12 +26,12 @@ const _api = (url, kwargs = {}) => new Promise((resolve, reject) => {
     )));
 });
 
-Object.defineProperty(jdoodle.defaults, 'executeURL', {
+Object.defineProperty(lib.defaults, 'executeURL', {
   get() { return `${location.origin}${this.executePath}`; }
 });
 
 const rawExecute = ({
-  url = jdoodle.defaults.executeURL,
+  url = lib.defaults.executeURL,
   language,
   versionIndex,
   stdin,
@@ -48,12 +48,12 @@ const execute = kwargs => rawExecute(kwargs).
     error: `${err}`
   }));
 
-Object.defineProperty(jdoodle.defaults, 'creditSpentURL', {
+Object.defineProperty(lib.defaults, 'creditSpentURL', {
   get() { return `${location.origin}${this.creditSpentPath}`; }
 });
 
 const rawCreditSpent = ({
-  url = jdoodle.defaults.creditSpentURL
+  url = lib.defaults.creditSpentURL
 } = {}) => _api(url);
 
 const creditSpent = kwargs => rawCreditSpent(kwargs).
