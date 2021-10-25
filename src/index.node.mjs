@@ -1,3 +1,3 @@
-import lib from './node/jdoodle-client';
+import lib from './node/index';
 
 export default lib;

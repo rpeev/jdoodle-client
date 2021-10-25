@@ -1,3 +1,3 @@
-import lib from './browser/jdoodle-client';
+import lib from './browser/index';
 
 export default lib;
