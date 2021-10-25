@@ -13,7 +13,7 @@ const defaults = {
 
 const jdoodle = {
   get [Symbol.toStringTag]() { return browserGlobal; },
-  version: version,
+  version,
   defaults
 };
 
