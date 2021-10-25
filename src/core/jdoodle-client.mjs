@@ -3,7 +3,7 @@ import {browserGlobal, version} from '../../package.json';
 const jdoodle = {
   get [Symbol.toStringTag]() { return browserGlobal; },
   version: version,
-  opts: {
+  defaults: {
     executeEndpoint: 'https://api.jdoodle.com/v1/execute',
     executePath: '/jdoodleExecute',
     language: 'ruby',
