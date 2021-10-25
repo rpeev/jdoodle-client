@@ -1,4 +1,4 @@
-import lib from '../core/jdoodle-client';
+import lib from '../core/index';
 
 const _api = (url, kwargs = {}) => new Promise((resolve, reject) => {
   const json = JSON.stringify(kwargs);
