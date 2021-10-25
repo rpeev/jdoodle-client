@@ -1,4 +1,6 @@
-import {browserGlobal, version} from '../../package.json';
+import {browserGlobal as name, version} from '../../package.json';
+
+const tag = `${name}@${version}`;
 
 const defaults = {
   executeEndpoint: 'https://api.jdoodle.com/v1/execute',
@@ -12,8 +14,9 @@ const defaults = {
 };
 
 const jdoodle = {
-  get [Symbol.toStringTag]() { return browserGlobal; },
+  name,
   version,
+  get [Symbol.toStringTag]() { return tag; },
   defaults
 };
 
