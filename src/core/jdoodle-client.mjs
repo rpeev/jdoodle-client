@@ -13,11 +13,11 @@ const defaults = {
   creditSpentPath: '/jdoodle/api/creditSpent'
 };
 
-const jdoodle = {
+const lib = {
   name,
   version,
   get [Symbol.toStringTag]() { return tag; },
   defaults
 };
 
-export default jdoodle;
+export default lib;
